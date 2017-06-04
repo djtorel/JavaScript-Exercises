@@ -62,7 +62,7 @@ function printGrid(min, max) {
 
 
 /**
- * Dynamically generates padding for linux terminal with 7 spaces per tab
+ * Dynamically generates padding for linux terminal with 8 spaces per tab
  * Converts num to string and gets length, then subtracts that from 7 to
  * set left side spacing. Uses tab for right side spacing
  * 
