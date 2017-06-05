@@ -24,11 +24,9 @@ if (max < min) {
  * Setting up variables:
  * numLines is the number of columns total per row, hence how many lines to make
  * spaceOffset is the length of the maximum calculated number + 2 for padding
- * cellBottom creates the string of lines for the bottom of each column/cell
  */
 var numLines = (max - min) + 2;
 var spaceOffset = (max * max).toString().length + 2;
-var cellBottom = spacers(numLines, spaceOffset);
 /**
  * Here if spaceOffset is even, we're making it odd, so each cell has a perfect
  * center space.
@@ -36,6 +34,10 @@ var cellBottom = spacers(numLines, spaceOffset);
 if (spaceOffset % 2 === 0) {
     spaceOffset++;
 }
+/**
+ * cellBottom creates the string of lines for the bottom of each column/cell
+ */
+var cellBottom = spacers(numLines, spaceOffset);
 
 /**
  * Running the function to print grid to console
