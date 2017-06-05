@@ -24,9 +24,11 @@ if (max < min) {
  * Setting up variables:
  * numLines is the number of columns total per row, hence how many lines to make
  * spaceOffset is the length of the maximum calculated number + 2 for padding
+ * cellBottom creates the string of lines for the bottom of each column/cell
  */
 var numLines = (max - min) + 2;
 var spaceOffset = (max * max).toString().length + 2;
+var cellBottom = spacers(numLines, spaceOffset);
 /**
  * Here if spaceOffset is even, we're making it odd, so each cell has a perfect
  * center space.
@@ -58,8 +60,7 @@ function printGrid(min, max) {
             /**
              * Creating spacers/lines on top of first row
              */
-            output += spacers(numLines, spaceOffset);
-            output += '\n|';
+            output += cellBottom + '\n|';
             for (let y = min; y <= max + 1; y++) {
                 if (y === min) {
                     /**
@@ -78,7 +79,7 @@ function printGrid(min, max) {
                  * spacers at the bottom of the row
                  */
                 if (y === max + 1) {
-                    output += '\n' + spacers(numLines, spaceOffset);
+                    output += '\n' + cellBottom;
                 }
             }
             /**
@@ -104,7 +105,7 @@ function printGrid(min, max) {
                  * End of row, creating new line and then spacers for bottom
                  * of cells
                  */
-                output += '\n' + spacers(numLines, spaceOffset);
+                output += '\n' + cellBottom;
             }
         }
 
